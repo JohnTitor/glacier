@@ -12,7 +12,7 @@ jobs:
 
       - name: Get issue numbers
         run: |
-          git diff origin/${GITHUB_BASE_REF}..origin/${GITHUB_HEAD_REF} \
+          git diff ${GITHUB_BASE_REF}...${GITHUB_REF} \
             --diff-filter=AM \
             --name-only -- ices | grep -o '[0-9]*' >> comments
           sed -i 's/^/- github.com\/rust-lang\/rust\/issues\/ /g' comments
